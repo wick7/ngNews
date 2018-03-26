@@ -1,0 +1,3 @@
+<select class="form-control form-control-lg" #selected (change)="onSelected(selected.value)">
+    <option *ngFor="let final of finals; let i = index">{{final.name}}</option>
+  </select>

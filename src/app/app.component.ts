@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  objectKeys = Object.keys;
+  articles: any;
+  final: any;
+  newSource: string;
+  result: any;
+  
+  constructor(private _data: DataService) {
+  
+  }
+
+  ngOnInit() {
+    this._data.getNews()
+      .subscribe(res => {
+        this.final = res;
+        console.log(res.articles);
+      });
+  }
+
 }
