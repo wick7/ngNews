@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SourcesService } from '../sources.service';
+import { DataService } from '../data.service';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-search',
@@ -16,7 +18,7 @@ export class SearchComponent implements OnInit {
 
   
 
-  constructor(private source: SourcesService) {
+  constructor(private source: SourcesService, private data: DataService) {
     
   }
 
@@ -33,7 +35,7 @@ export class SearchComponent implements OnInit {
     this.sourceChange.emit({
       id: selected
     });
-    console.log(selected);
+    console.log("in search " + selected);
   }
 
 }

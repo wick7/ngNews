@@ -11,19 +11,26 @@ export class AppComponent {
   objectKeys = Object.keys;
   articles: any;
   final: any;
-  newSource: string;
+  newSource: any;
+  newId: any;
   result: any;
-  
   constructor(private _data: DataService) {
   
   }
 
   ngOnInit() {
-    this._data.getNews()
-      .subscribe(res => {
-        this.final = res;
-        console.log(res.articles);
-      });
+   
+  }
+
+  onSourceChange(newSource: {id: string}, newId: string) {
+    
+    newId = newSource.id;
+    console.log(newId);
+    this._data.selectedSource(this.newId)
+    .subscribe(res => {
+      this.newId = res;
+      console.log(res);
+    })
   }
 
 }

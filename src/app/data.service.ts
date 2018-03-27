@@ -22,12 +22,22 @@ export class DataService {
   newSource = 'abc-news';
   result:any;
 
+  private apiUrl: string;
+
   constructor(private _http: HttpClient) {}
 
+  selectedSource(selected: string) {
+    this.apiUrl = 'https://newsapi.org/v2/top-headlines?source='+ selected +'&apiKey=97c55d6f78ef4b89815173a70fd9b52a'
+    return this._http.get(this.apiUrl)
+    .map(result => this.result = result);
+  }
+
   getNews() {
-    return this._http.get<NewsArticles>("https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=97c55d6f78ef4b89815173a70fd9b52a")
+    return this._http.get<NewsArticles>("https://newsapi.org/v2/top-headlines?country=us&apiKey=97c55d6f78ef4b89815173a70fd9b52a")
       .map(result => this.result = result);
   }
+
+
 
   
 }
