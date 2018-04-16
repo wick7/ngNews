@@ -1,3 +1,8 @@
-<select class="form-control form-control-lg" #selected (change)="onSelected(selected.value)">
+<!-- <select class="form-control form-control-lg" #selected (change)="onSelected(selected.value)">
     <option *ngFor="let final of finals; let i = index">{{final.id}}</option>
-  </select>
+  </select> -->
+
+  <input type="text" class="form-control" [(ngModel)]="selected">
+    <button (click)="onSelected(selected)">SEARCH FOR NEWS</button>
+
+  <h1>{{selected}}</h1>

@@ -21,14 +21,16 @@ export class DataService {
   
   newSource = 'abc-news';
   result:any;
+  selected: string;
+
 
   private apiUrl: string;
 
   constructor(private _http: HttpClient) {}
 
-  selectedSource(selected: string) {
-    this.apiUrl = 'https://newsapi.org/v2/top-headlines?source='+ selected +'&apiKey=97c55d6f78ef4b89815173a70fd9b52a'
-    return this._http.get(this.apiUrl)
+  selectedSource(selected) {
+    this.apiUrl = 'https://newsapi.org/v2/top-headlines?sources=' + selected + '&apiKey=97c55d6f78ef4b89815173a70fd9b52a'
+    return this._http.get<NewsArticles>(this.apiUrl)
     .map(result => this.result = result);
   }
 

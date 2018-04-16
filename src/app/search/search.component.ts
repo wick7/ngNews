@@ -12,11 +12,14 @@ import { DatePipe } from '@angular/common';
 export class SearchComponent implements OnInit {
   @Output() sourceChange = new EventEmitter<{id: string}>();
 
-  selected = ' ';
+  
   sources: any;
   finals: any;
 
-  
+  articles: any;
+  news: any;
+  result:any;
+  public selected: string= '';
 
   constructor(private source: SourcesService, private data: DataService) {
     
@@ -31,11 +34,21 @@ export class SearchComponent implements OnInit {
       });
   }
 
-  onSelected(selected: string) {
-    this.sourceChange.emit({
-      id: selected
-    });
-    console.log("in search " + selected);
+  // onSelected(selected: string) {
+  //   this.sourceChange.emit({
+  //     id: selected
+  //   });
+  //   console.log("in search " + selected);
+  // }
+
+  onSelected(selected) {
+    console.log(selected)
+    
+    this.data.selectedSource(this.selected)
+      .subscribe(res => {
+        this.news = res.articles;
+        console.log(res.articles);
+      });
   }
 
 }
