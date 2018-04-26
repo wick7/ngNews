@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  @Output() sourceChange = new EventEmitter<{id: string}>();
+  @Output() sourceChange = new EventEmitter<string>();
 
   
   sources: any;
@@ -19,11 +19,15 @@ export class SearchComponent implements OnInit {
   articles: any;
   news: any;
   result:any;
+  public id: any;
+  name: string;
   public selected: string= '';
+  public selectedId: string= '';
 
   constructor(private source: SourcesService, private data: DataService) {
     
   }
+
 
   ngOnInit() {
     this.source.getSources()
@@ -32,6 +36,13 @@ export class SearchComponent implements OnInit {
         console.log(res.sources);
         
       });
+  }
+
+  idSource(selectedId) {
+    this.id.target.value = selectedId;
+    // console.log("im here in search " + this.id.target.value)
+    console.log("I'm Selected Id" + this.selectedId)
+    this.sourceChange.emit(this.id.target.value)
   }
 
   // onSelected(selected: string) {
@@ -51,4 +62,14 @@ export class SearchComponent implements OnInit {
       });
   }
 
+
+  getSource(selected) {
+    console.log(selected)
+    
+    this.data.selectedSource(this.selected)
+      .subscribe(res => {
+        this.news = res.articles;
+        console.log(res.articles[2].source.id);
+      });
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { DataService } from './data.service';
 
 @Component({
@@ -22,15 +22,21 @@ export class AppComponent {
    
   }
 
-  onSourceChange(newSource: {id: string}, newId: string) {
+  // onSourceChange(newSource: {id: string}, newId: string) {
     
-    newId = newSource.id;
-    console.log(newId);
-    this._data.selectedSource(this.newId)
-    .subscribe(res => {
-      this.newId = res;
-      console.log(res);
-    })
-  }
+  //   newId = newSource.id;
+  //   console.log(newId);
+  //   this._data.selectedSource(this.newId)
+  //   .subscribe(res => {
+  //     this.newId = res;
+  //     console.log(res);
+  //   })
+  // }
+
+
+//   @HostListener('window:scroll', ['$event']) 
+//   onWindowScroll(event) {
+//     console.log(window.pageYOffset);
+// }
 
 }

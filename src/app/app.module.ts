@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { SearchComponent } from './search/search.component';
+import { ScrollerDirective } from './scroller.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsDetailComponent,
-    SearchComponent
+    SearchComponent,
+    ScrollerDirective
   ],
   imports: [
     BrowserModule,

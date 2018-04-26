@@ -6,3 +6,5 @@
     <button (click)="onSelected(selected)">SEARCH FOR NEWS</button>
 
   <h1>{{selected}}</h1>
+
+  <button value="{{final.id}}" *ngFor="let final of finals; let i = index" (click)="idSource($event)">{{final.name}}</button>
