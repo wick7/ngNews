@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { SearchComponent } from './search/search.component';
 import { ScrollerDirective } from './scroller.directive';
+import { NewsOrgDirective } from './news-org.directive';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ScrollerDirective } from './scroller.directive';
     AppComponent,
     NewsDetailComponent,
     SearchComponent,
-    ScrollerDirective
+    ScrollerDirective,
+    NewsOrgDirective
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
 .box {
     padding: 10rem;
     background-color: green;
-    
+    transition: .6s all ease;
 }
 
 .effect {
     background-color: yellow;
-    transition: .4s all ease;
+    transition: .6s all ease;
 }

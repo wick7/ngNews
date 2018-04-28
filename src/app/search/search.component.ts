@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, Renderer2 } from '@angular/core';
 import { SourcesService } from '../sources.service';
 import { DataService } from '../data.service';
 import { DatePipe } from '@angular/common';
@@ -12,7 +12,7 @@ import { DatePipe } from '@angular/common';
 export class SearchComponent implements OnInit {
   @Output() sourceChange = new EventEmitter<string>();
 
-  
+  newSource: string;
   sources: any;
   finals: any;
 
@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   public selected: string= '';
   public selectedId: string= '';
 
-  constructor(private source: SourcesService, private data: DataService) {
+  constructor(private source: SourcesService, private data: DataService, private el: ElementRef, private renderer: Renderer2) {
     
   }
 
@@ -71,5 +71,12 @@ export class SearchComponent implements OnInit {
         this.news = res.articles;
         console.log(res.articles[2].source.id);
       });
+  }
+
+
+
+  selectedSource(neww: string) {
+    console.log(neww);
+    this.sourceChange.emit(neww);
   }
 }

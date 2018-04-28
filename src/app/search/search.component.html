@@ -7,4 +7,6 @@
 
   <h1>{{selected}}</h1>
 
-  <button value="{{final.id}}" *ngFor="let final of finals; let i = index" (click)="idSource($event)">{{final.name}}</button>
+  <!-- <button appNewsOrg (sourceChange)="onNewSource($event)" value="{{final.id}}" *ngFor="let final of finals; let i = index">{{final.name}}</button> -->
+
+  <button (click)="selectedSource(final.id)" value="{{final.id}}" *ngFor="let final of finals; let i = index">{{final.name}}</button>

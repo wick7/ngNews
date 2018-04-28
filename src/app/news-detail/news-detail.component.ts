@@ -28,6 +28,15 @@ export class NewsDetailComponent implements OnInit {
         });
   }
 
+  onNewSource($event) {
+    console.log('from onNewSource ', $event)
+    this._data.selectedSource('the-wall-street-journal')
+        .subscribe(res => {
+          this.news = res.articles;
+          console.log(res.articles);
+        });
+  }
+
   
 
   
