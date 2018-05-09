@@ -38,12 +38,14 @@ export class SearchComponent implements OnInit {
       });
   }
 
-  idSource(selectedId) {
-    this.id.target.value = selectedId;
-    // console.log("im here in search " + this.id.target.value)
-    console.log("I'm Selected Id" + this.selectedId)
-    this.sourceChange.emit(this.id.target.value)
-  }
+
+
+  // idSource(selectedId) {
+  //   this.id.target.value = selectedId;
+  //   // console.log("im here in search " + this.id.target.value)
+  //   console.log("I'm Selected Id" + this.selectedId)
+  //   this.sourceChange.emit(this.id.target.value)
+  // }
 
   // onSelected(selected: string) {
   //   this.sourceChange.emit({
@@ -75,8 +77,8 @@ export class SearchComponent implements OnInit {
 
 
 
-  selectedSource(neww: string) {
-    console.log(neww);
-    this.sourceChange.emit(neww);
+  selectedSource(newSource: string) {
+    console.log("fromserach " + newSource);
+    this.sourceChange.emit(newSource);
   }
 }

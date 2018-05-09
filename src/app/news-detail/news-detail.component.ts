@@ -10,11 +10,14 @@ import { DatePipe } from '@angular/common';
 })
 export class NewsDetailComponent implements OnInit {
 
+  @Input() newSource: {secondSource: string};
+  @Input() anotherSource: string;
+
   articles: any;
   news: any;
   result:any;
   id: string;
-  currentId: 'abc-news';
+  currentId: string ='economist';
   private apiUrl = 'https://newsapi.org/v2/top-headlines?sources=' + this.currentId + '&apiKey=97c55d6f78ef4b89815173a70fd9b52a'
   constructor(private _data: DataService) {
   
@@ -28,15 +31,12 @@ export class NewsDetailComponent implements OnInit {
         });
   }
 
-  onNewSource($event) {
-    console.log('from onNewSource ', $event)
-    this._data.selectedSource('the-wall-street-journal')
-        .subscribe(res => {
-          this.news = res.articles;
-          console.log(res.articles);
-        });
+  NewSource(newSource:  string) {
+    console.log(newSource)
+    
   }
 
+  
   
 
   
